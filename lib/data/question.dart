@@ -2,12 +2,12 @@ import 'package:adv_basics/models/quiz_question.dart';
 
 const questions = [
   QuizQuestion(
-    'What are the main building blocks of Flutter UIs?',
+    'Que rol te gustaria desempeñar en la compañia?',
     [
-      'Widgets',
-      'Components',
-      'Blocks',
-      'Functions',
+      'Developer 👽',
+      'Designer 🎨',
+      'Marketer 🌐',
+      'Security 🛡️',
     ],
   ),
   QuizQuestion('How are Flutter UIs built?', [
