@@ -33,16 +33,19 @@ class QuestionsSummary extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: 25),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             data['question'] as String,
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          const SizedBox(height: 5),
+                          const SizedBox(height: 2),
                           Text(
                             data['user_answer'] as String,
                             style: const TextStyle(color: Colors.yellow),
@@ -51,6 +54,7 @@ class QuestionsSummary extends StatelessWidget {
                             data['correct_answer'] as String,
                             style: const TextStyle(color: Colors.blue),
                           ),
+                          const SizedBox(height: 20),
                         ],
                       ),
                     ),
