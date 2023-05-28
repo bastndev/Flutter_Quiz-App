@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(const Quiz());
 
+// void main(){
+//   var quizState = _QuizState();
+//   runApp(const Quiz());
+// }
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
 

@@ -27,12 +27,18 @@ class _QuizState extends State<Quiz> {
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
 
-    if (selectedAnswers.length == questions.length){
+    if (selectedAnswers.length == questions.length) {
       setState(() {
-        // selectedAnswers = [];
         activeScreen = 'results-screen';
       });
     }
+  }
+
+  void restartQuiz() {
+    setState(() {
+      selectedAnswers = [];
+      activeScreen = 'question_screen';
+    });
   }
 
   @override
@@ -45,8 +51,11 @@ class _QuizState extends State<Quiz> {
       );
     }
 
-    if (activeScreen == 'results-screen'){
-      screenWidget =  ResultsScreen(chosenAnswers: selectedAnswers,);
+    if (activeScreen == 'results-screen') {
+      screenWidget = ResultsScreen(
+        chosenAnswers: selectedAnswers,
+        onRestart:restartQuiz,
+      );
     }
 
     return MaterialApp(
@@ -56,8 +65,8 @@ class _QuizState extends State<Quiz> {
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Color.fromARGB(255, 78, 113, 151),
-                Color.fromARGB(255, 107, 15, 168),
+                Color.fromARGB(255, 164, 5, 189),
+                Color.fromARGB(255, 31, 31, 31),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,

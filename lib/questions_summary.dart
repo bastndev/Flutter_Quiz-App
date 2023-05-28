@@ -7,29 +7,58 @@ class QuestionsSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 310,
-      child: SingleChildScrollView(
-        child: Column(
-          children: summaryData.map(
-            (data) {
-              return Row(
-                children: [
-                  Text(((data['question_index'] as int) + 1).toString()),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Text(data['question'] as String),
-                        const SizedBox(height: 5),
-                        Text(data['user_answer'] as String),
-                        Text(data['correct_answer'] as String),
-                      ],
+    return Align(
+      alignment: Alignment.topLeft,
+      child: SizedBox(
+        height: 350,
+        child: SingleChildScrollView(
+          child: Column(
+            children: summaryData.map(
+              (data) {
+                return Row(
+                  children: [
+                    Container(
+                      width: 36,
+                      height: 36,
+                      decoration: const BoxDecoration(
+                        color: Colors.blue,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Text(
+                          ((data['question_index'] as int) + 1).toString(),
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ],
-              );
-            },
-          ).toList(),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            data['question'] as String,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            data['user_answer'] as String,
+                            style: const TextStyle(color: Colors.yellow),
+                          ),
+                          Text(
+                            data['correct_answer'] as String,
+                            style: const TextStyle(color: Colors.blue),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ).toList(),
+          ),
         ),
       ),
     );
